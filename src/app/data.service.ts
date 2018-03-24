@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Rx';
 import {Data} from './data';
 
 const httpOptions = {
@@ -16,11 +16,15 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getTemperature() {
-    return this.http.get(this.thingSpeakTempUrl);
+    return Observable.interval(1000)
+      .flatMap((i) => this.http.get(this.thingSpeakTempUrl));
+    // return this.http.get(this.thingSpeakTempUrl);
   }
 
   getHumidity() {
-    return this.http.get(this.thingSpeakHumiUrl);
+    return Observable.interval(1000)
+      .flatMap((i) => this.http.get(this.thingSpeakHumiUrl));
+    // return this.http.get(this.thingSpeakHumiUrl);
   }
 
 }
