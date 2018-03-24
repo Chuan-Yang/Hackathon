@@ -1,0 +1,25 @@
+<div class="dashboard-component">
+  <div class="data-container">
+    <div class="soil-humidity">
+
+      <h1 class="humidity-text">Humidity</h1>
+      <div class="water-shape"></div>
+      <div class="blue-bar" [ngStyle]="{'height': getHumidity()}"></div>
+      <div class="water-shape-transparent"></div>
+      <h1 class="humidity-text">86%</h1>
+    </div>
+
+    <div class="temperature">
+
+      <h1 class="temp-text">Temperature</h1>
+
+      <div class="temp-shape"></div>
+      <div class="up-termometer"></div>
+      <div class="red-bar" [ngStyle]="{'height': getTemperature()}"></div>
+
+      <h1 class="temp-text">26°C</h1>
+    </div>
+
+
+  </div>
+</div>
