@@ -2,12 +2,18 @@
   <div class="data-container">
     <div class="soil-humidity">
 
-      <h1 class="humidity-text">Humidity</h1>
+      <h1 class="humidity-text" (click)="update()">Humidity</h1>
       <div class="water-shape"></div>
-      <div class="blue-bar" [ngStyle]="{'height': getHumidity()}"></div>
+      <div class="blue-bar" [ngStyle]="{'height': humiBar+'px'}"></div>
       <div class="water-shape-transparent"></div>
-      <h1 class="humidity-text">86%</h1>
+      <h1 class="humidity-text">{{humidity | number:'2.1-2'}}%</h1>
     </div>
+
+    <div class="image-container">
+      <h1>Phase: Flowering</h1>
+      <img src="http://www.carlswebgraphics.com/flower-graphics/dancing-yellow-flower.gif" class="flower-image">
+    </div>
+
 
     <div class="temperature">
 
@@ -15,11 +21,23 @@
 
       <div class="temp-shape"></div>
       <div class="up-termometer"></div>
-      <div class="red-bar" [ngStyle]="{'height': getTemperature()}"></div>
+      <div class="red-bar" [ngStyle]="{'height': tempBar+'px'}"></div>
 
-      <h1 class="temp-text">26°C</h1>
+      <h1 class="temp-text">{{temperature | number:'2.1-2'}}°C</h1>
     </div>
 
 
+  </div>
+
+  <h1>Chart</h1>
+
+  <div class="graph-container">
+    <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/457682/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=20&type=line&update=15"></iframe>
+    <iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/457675/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=20&type=line&update=15"></iframe>
+  </div>
+
+  <h1>Suggestions</h1>
+  <div class="suggestions-container">
+    <p>You may need to add more water!</p>
   </div>
 </div>
