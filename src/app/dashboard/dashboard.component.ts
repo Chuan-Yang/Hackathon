@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,8 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
   humidity: string;
   temperature: string;
+  re: Observable<JSON>;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
     this.humidity = '12';
@@ -21,6 +24,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getTemperature(): string {
+    this.dataService.getTemperature();
     return this.temperature + 'px';
   }
 
